@@ -1,0 +1,64 @@
+My version stay at (v1_2)
+
+上午 11:38 2016/8/24
+CapacitiveLoading_3d(v1_2).m, 
+top_down_bolus_A(v1_2).m, 
+top_down_bolus_line_A(v1_3).m, 
+top_down_bolus_point_A(v1_3).m, 
+top_down_air_A(v1_2).m, 
+top_down_air_line_A(v1_2).m, 
+top_down_air_point_A(v1_2).m: 
+
+Correspond to Hyperthermia_Lung(v1_2_8).TEX 
+
+上午 11:38 2016/8/24
+CapacitiveLoading_3d(v1_2).m, 
+top_down_bolus_A(v1_2).m, 
+top_down_bolus_line_A(v1_2).m, 
+top_down_bolus_point_A(v1_2).m, 
+top_down_air_A(v1_2).m, 
+top_down_air_line_A(v1_2).m, 
+top_down_air_point_A(v1_2).m: 
+
+Correspond to Hyperthermia_Lung(v1_2_7).TEX, 
+Actually modified the three m-files: 
+top_down_air_A(v1_2).m, 
+top_down_air_line_A(v1_2).m, 
+top_down_air_point_A(v1_2).m: 
+
+The CapacitiveLoading_3d(v1_2).m, 
+top_down_bolus_A(v1_2).m, 
+top_down_bolus_line_A(v1_2).m, 
+top_down_bolus_point_A(v1_2).m, 
+actually remains the same as that in (v1_0)
+
+上午 10:14 2016/8/24
+CapacitiveLoading_3d(v1_1).m, 
+top_down_bolus_A(v1_1).m, 
+top_down_bolus_line_A(v1_1).m, 
+top_down_bolus_point_A(v1_1).m, 
+top_down_air_A(v1_1).m, 
+top_down_air_line_A(v1_1).m, 
+top_down_air_point_A(v1_1).m: 
+
+All corresponding to Hyperthermia_Lung(v1_2_6).TEX.
+
+下午 09:26 2016/8/22, 下午 03:20 2016/8/23
+CapacitiveLoading_3d(v1_0).m, 
+top_down_bolus_A(v1_0).m, 
+top_down_bolus_line_A(v1_0).m, 
+top_down_bolus_point_A(v1_0).m, 
+top_down_air_A(v1_0).m, 
+top_down_air_line_A(v1_0).m, 
+top_down_air_point_A(v1_0).m: 
+
+All corresponding to Hyperthermia_Lung(v1_2_5).TEX.
+
+下午 09:25 2016/8/16
+CapacitiveLoading_3d(v1_0_0).m: 
+Has filled the volume Laplace equation.
+
+下午 10:39 2016/5/25
+CapacitiveLoading(v1_0).m: 
+Succesfully apply the parameters describe in \cite{CapaForward} to the capacitive loading.
+The resultin temperatue rise is around 3.5^\circ C in the muscle.
