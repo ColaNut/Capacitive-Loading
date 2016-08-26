@@ -2,7 +2,6 @@ function [ valid ] = check_top_down_air_valid( m, n, ell, N_p, p, M_x, M_x1, M_x
 
 valid = false;
 
-
 if ( p == 9 ) & ( ell == N_p(p) + 1 ) 
     if ( m >= 2 ) & ( m <= M_x ) & ( n >= 2 ) & ( n <= M_y )
 

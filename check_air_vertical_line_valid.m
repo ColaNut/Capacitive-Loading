@@ -3,7 +3,7 @@ function [ valid ] = check_air_vertical_line_valid( m, n, ell, N_p, p, M_x, M_x1
 valid = false;
 
 if ~( ( p >= 1 ) & ( p <= 9 ) )
-    disp('invalid p in AB line')
+    disp('invalid p in air vertical line');
 end
 
 if ( ell >= 2 ) & ( ell <= N_p(p) ) 
