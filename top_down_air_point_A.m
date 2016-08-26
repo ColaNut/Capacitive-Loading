@@ -68,7 +68,7 @@ switch point_idx
         A_row( p1 ) = ( 2 / d_z(p) )^2; % ell + 1
         % A_row( p3 ) = ( 1 / d_z(p) )^2; % ell - 1
     otherwise
-        disp('wrong in top down bolus point');
+        disp('wrong in top down air point');
         p0
 end
 
