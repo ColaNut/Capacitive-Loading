@@ -31,3 +31,6 @@ TO LISTS:
 2. Implement the bottom air region.
 3. Handmade the code for conjugate gradient method.
 4. Compare it using least mean square error method.
+
+Since the current BC will restrict the boundary to zero-voltage, 
+the air layer are needed to be prolonged.

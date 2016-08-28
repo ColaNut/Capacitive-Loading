@@ -1,6 +1,6 @@
 clc; clear;
 digits;
-N = int32(9); % [ skin, muscle, lung, muscle, skin ]
+N = int32(9); % [ bolus, skin, muscle, lung, tumor, lung, muscle, skin, bolus ]
 
 Mu_0        = 4 * pi * 10^(-7);
 Epsilon_0   = 10^(-9) / (36 * pi);
@@ -9,7 +9,7 @@ Omega_0     = 2 * pi * 10 * 10^6; % 2 * pi * 2.45 GHz
 V_0         = 126;
 % thickness   = [ 2.5, 0.02, 3.53, 1.00, 2.75, 14.62, 2.91, 0.19, 2.5 ]' ./ 100; % cm -> m, total = 31 cm
 thickness   = [ 2.0, 0.02, 3.5, 1.00, 2.8, 15, 3, 0.2, 2.0 ]' ./ 100; % cm -> m, total = 31 cm
-thickness_10 = 20 / 100; % 15 cm
+thickness_10 = 10 / 100; % 15 cm
 % thickness   = [ 2, 2, 4, 2, 3, 15, 3, 2, 2 ]' ./ 100; % cm -> m, total = 31 cm
 epsilon_r   = [ 113.0, 303.1, 184, 264.9, 402, 264.9, 184, 303.1, 113.0 ]';
 epsilon_b_r = epsilon_r(1);
