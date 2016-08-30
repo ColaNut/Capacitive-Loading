@@ -1,9 +1,9 @@
-load('Preliminary_hetero_zp_10.mat');
+load('Preliminary_hetero_zp_da.mat');
 
-Cross_section_10_mid = zeros( N_max + N_10, M_x_max );
-Cross_section_10_m4  = zeros( N_max + N_10, M_y_max );
+Cross_section_da_mid = zeros( N_da + N_max + N_10, M_x_max );
+Cross_section_da_m4  = zeros( N_da + N_max + N_10, M_y_max );
 
-for idx = 1: 1: M_x_max * M_y_max * ( N_max + N_10 )
+for idx = 1: 1: M_x_max * M_y_max * ( N_da + N_max + N_10 )
     tmp_m = mod( idx, M_x_max );
     if tmp_m == 0
         m = M_x_max;
@@ -27,11 +27,11 @@ for idx = 1: 1: M_x_max * M_y_max * ( N_max + N_10 )
     % end
 
     if n == int32( ( 1 + M_y ) / 2 )
-        Cross_section_10_mid( ell_all, m ) = bar_x_10(idx);
+        Cross_section_da_mid( ell_all, m ) = bar_x_da(idx);
     end
 
     if m == 4
-        Cross_section_10_m4( ell_all, n ) = bar_x_10(idx);
+        Cross_section_da_m4( ell_all, n ) = bar_x_da(idx);
     end
 end
 
@@ -39,50 +39,47 @@ end
 
 x_ori = 0: d_x: w_0;
 z_ori = [];
+z_ori = 0: d_z_da: thickness_da;
 for idx = 1: 1: length(thickness)
-    if idx == 1
-        z_ori = 0: d_z(idx): thickness(idx);
-    else
-        z_ori = [z_ori, z_ori(length(z_ori)) + d_z(idx): d_z(idx): cum_thickness(idx)];
-    end
+    z_ori = [z_ori, z_ori(length(z_ori)) + d_z(idx): d_z(idx): (thickness_da + cum_thickness(idx))];
 end
 % the 10-th layer
-z_ori = [ z_ori, (z_ori(length(z_ori)) + d_z_10): d_z_10: (cum_thickness(9) + thickness_10) ];
+z_ori = [ z_ori, (z_ori(length(z_ori)) + d_z_10): d_z_10: (thickness_da + cum_thickness(9) + thickness_10) ];
 
 [x_mesh, z_mesh] = meshgrid(x_ori, z_ori);
 figure(1);
-surf(x_mesh * 100, z_mesh * 100, Cross_section_10_mid, 'EdgeColor','none'); 
+surf(x_mesh * 100, z_mesh * 100, Cross_section_da_mid, 'EdgeColor','none'); 
 colorbar;
 set(gca,'fontsize',14);
-axis( [ 0, w_0 * 100, 0, (cum_thickness(9) + thickness_10) * 100, min(min(Cross_section_10_mid)), max(max(Cross_section_10_mid)) ] );
-% axis( [ (- d_x) * 100, (w_0 + d_x) * 100, (- d_z(1)) * 100, (sum(thickness) + d_z(9)) * 100, min(min(Cross_section_10_mid)), max(max(Cross_section_10_mid)) ] );
+axis( [ 0, w_0 * 100, 0, (thickness_da + cum_thickness(9) + thickness_10) * 100, min(min(Cross_section_da_mid)), max(max(Cross_section_da_mid)) ] );
+% axis( [ (- d_x) * 100, (w_0 + d_x) * 100, (- d_z(1)) * 100, (sum(thickness) + d_z(9)) * 100, min(min(Cross_section_da_mid)), max(max(Cross_section_da_mid)) ] );
 xlabel('$x$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
 ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
 zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
 view(3);
 
 % figure(2);
-% contourf(x_mesh * 100, z_mesh * 100, Cross_section_10_mid, 15);
+% contourf(x_mesh * 100, z_mesh * 100, Cross_section_da_mid, 15);
 % colorbar;
 % hold on;
 % quiver(x_mesh * 100, z_mesh * 100, E_x, E_z, 'k', 'LineWidth', 2.0);
 % hold on;
 
 x_cut = x_0 - h_b: d_x: x_0 + w + h_b;
-Cross_section_10_mid_tissue_bolus = Cross_section_10_mid(:, M_x1 + 1: M_x - M_x5 + 1);
+Cross_section_da_mid_tissue_bolus = Cross_section_da_mid(:, M_x1 + 1: M_x - M_x5 + 1);
 % E_x_tissue_bolus = E_x(:, M_x1 + 1: M_x - M_x5 + 1);
 % E_z_tissue_bolus = E_z(:, M_x1 + 1: M_x - M_x5 + 1);
 [x_cut_mesh, z_cut_mesh] = meshgrid(x_cut, z_ori);
 figure(2);
-surf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_10_mid_tissue_bolus, 'EdgeColor','none'); % m -> \mu m
+surf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_da_mid_tissue_bolus, 'EdgeColor','none'); % m -> \mu m
 colorbar
 set(gca,'fontsize',14);
-axis( [ (x_0 - h_b) * 100, (x_0 + w + h_b) * 100, 0, (cum_thickness(9) + thickness_10) * 100, min(min(Cross_section_10_mid_tissue_bolus)), max(max(Cross_section_10_mid_tissue_bolus)) ] );
+axis( [ (x_0 - h_b) * 100, (x_0 + w + h_b) * 100, 0, (thickness_da + cum_thickness(9) + thickness_da) * 100, min(min(Cross_section_da_mid_tissue_bolus)), max(max(Cross_section_da_mid_tissue_bolus)) ] );
 xlabel('$x$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
 ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
 zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
 view(3);
-% contourf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_10_mid_tissue_bolus, 15);
+% contourf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_da_mid_tissue_bolus, 15);
 % hold on;
 % quiver(x_cut_mesh * 100, z_cut_mesh * 100, E_x_tissue_bolus, E_z_tissue_bolus, 'color',[0 0 0], 'LineWidth', 2.0);
 % hold on;
@@ -90,25 +87,25 @@ view(3);
 
 
 figure(3);
-surf(x_mesh * 100, z_mesh * 100, Cross_section_10_m4, 'EdgeColor','none'); 
+surf(x_mesh * 100, z_mesh * 100, Cross_section_da_m4, 'EdgeColor','none'); 
 colorbar;
 set(gca,'fontsize',14);
-axis( [ 0, w_0 * 100, 0, (cum_thickness(9) + thickness_10) * 100, min(min(Cross_section_10_m4)), max(max(Cross_section_10_m4)) ] );
-% axis( [ (- d_x) * 100, (w_0 + d_x) * 100, (- d_z(1)) * 100, (sum(thickness) + d_z(9)) * 100, min(min(Cross_section_10_m4)), max(max(Cross_section_10_m4)) ] );
+axis( [ 0, w_0 * 100, 0, (thickness_da + cum_thickness(9) + thickness_da) * 100, min(min(Cross_section_da_m4)), max(max(Cross_section_da_m4)) ] );
+% axis( [ (- d_x) * 100, (w_0 + d_x) * 100, (- d_z(1)) * 100, (sum(thickness) + d_z(9)) * 100, min(min(Cross_section_da_m4)), max(max(Cross_section_da_m4)) ] );
 xlabel('$y$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
 ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
 zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
 view(3);
 
-Cross_section_10_m4_tissue_bolus = Cross_section_10_m4(:, M_x1 + 1: M_x - M_x5 + 1);
+Cross_section_da_m4_tissue_bolus = Cross_section_da_m4(:, M_x1 + 1: M_x - M_x5 + 1);
 % E_x_tissue_bolus = E_x(:, M_x1 + 1: M_x - M_x5 + 1);
 % E_z_tissue_bolus = E_z(:, M_x1 + 1: M_x - M_x5 + 1);
 [x_cut_mesh, z_cut_mesh] = meshgrid(x_cut, z_ori);
 figure(4);
-surf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_10_m4_tissue_bolus, 'EdgeColor','none'); % m -> \mu m
+surf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_da_m4_tissue_bolus, 'EdgeColor','none'); % m -> \mu m
 colorbar
 set(gca,'fontsize',14);
-axis( [ (x_0 - h_b) * 100, (x_0 + w + h_b) * 100, 0, (cum_thickness(9) + thickness_10) * 100, min(min(Cross_section_10_m4_tissue_bolus)), max(max(Cross_section_10_m4_tissue_bolus)) ] );
+axis( [ (x_0 - h_b) * 100, (x_0 + w + h_b) * 100, 0, (thickness_da + cum_thickness(9) + thickness_da) * 100, min(min(Cross_section_da_m4_tissue_bolus)), max(max(Cross_section_da_m4_tissue_bolus)) ] );
 xlabel('$y$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
 ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
 zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);

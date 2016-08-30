@@ -27,7 +27,7 @@ Furthermore, the BC on the top four edge point was:
 p0 = (p1 + p2 + p3) / 3
 
 TO LISTS:
-1. Give a short notes on how I implement the BC so far.
+1. Give a short notes on how I implement the BC so far. -- done
 2. Implement the bottom air region.
 3. Handmade the code for conjugate gradient method.
 4. Compare it using least mean square error method.
