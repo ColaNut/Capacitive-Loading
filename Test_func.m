@@ -4,7 +4,8 @@ y = -3:0.5:3;
 Z = Y.^2 - X.^2;
 [U,V,W] = surfnorm(Z);
 
-xxxxxxx = 1;
-if xxxxxxx
-    error('test_here');
-end
+m = 7;
+n = 7;
+ell = 30;
+
+idx = ( ell - 1 ) * M_x_max * M_y_max + ( n - 1 ) * M_x_max + m
