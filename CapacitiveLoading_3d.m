@@ -348,188 +348,111 @@
 % % Plot the figure.
 % end
 
-% % % Check for empty rows in A_10 - part 1
-% % for idx = 1: 1: M_x_max * M_y_max * N_max
-% %     tmp_m = mod( idx, M_x_max );
-% %     if tmp_m == 0
-% %         m = M_x_max;
-% %     else
-% %         m = tmp_m;
-% %     end
+% % % % Check for empty rows in A_10 - part 1
+% % % for idx = 1: 1: M_x_max * M_y_max * N_max
+% % %     tmp_m = mod( idx, M_x_max );
+% % %     if tmp_m == 0
+% % %         m = M_x_max;
+% % %     else
+% % %         m = tmp_m;
+% % %     end
 
-% %     if mod( idx, M_x_max * M_y_max ) == 0
-% %         n = M_y_max;
-% %     else
-% %         n = ( mod( idx, M_x_max * M_y_max ) - m ) / M_x_max + 1;
-% %     end
+% % %     if mod( idx, M_x_max * M_y_max ) == 0
+% % %         n = M_y_max;
+% % %     else
+% % %         n = ( mod( idx, M_x_max * M_y_max ) - m ) / M_x_max + 1;
+% % %     end
     
-% %     ell_all = ( idx - m - ( n - 1 ) * M_x_max ) / ( M_x_max * M_y_max ) + 1;
+% % %     ell_all = ( idx - m - ( n - 1 ) * M_x_max ) / ( M_x_max * M_y_max ) + 1;
     
-% %     p = get_p(ell_all, cum_N_p);
-% %     if p == 1
-% %         ell = ell_all;
-% %     else
-% %         ell = ell_all - cum_N_p(p - 1);
-% %     end
+% % %     p = get_p(ell_all, cum_N_p);
+% % %     if p == 1
+% % %         ell = ell_all;
+% % %     else
+% % %         ell = ell_all - cum_N_p(p - 1);
+% % %     end
 
-% %     if A_10(idx, :) == zeros( 1, M_x_max * M_y_max * ( N_max + N_10 ) );
-% %         disp( [' Error in [ ', num2str(m), ', ', num2str(n), ', ', num2str(ell), '] in layer', num2str(p)] );
-% %     end
-% % end
+% % %     if A_10(idx, :) == zeros( 1, M_x_max * M_y_max * ( N_max + N_10 ) );
+% % %         disp( [' Error in [ ', num2str(m), ', ', num2str(n), ', ', num2str(ell), '] in layer', num2str(p)] );
+% % %     end
+% % % end
 
-% % % Check for empty rows in A_10 - part 2
-% % for idx = M_x_max * M_y_max * (N_max - 1) + 1: 1: M_x_max * M_y_max * ( N_max + N_10 )
-% %     tmp_m = mod( idx, M_x_max );
-% %     if tmp_m == 0
-% %         m = M_x_max;
-% %     else
-% %         m = tmp_m;
-% %     end
+% % % % Check for empty rows in A_10 - part 2
+% % % for idx = M_x_max * M_y_max * (N_max - 1) + 1: 1: M_x_max * M_y_max * ( N_max + N_10 )
+% % %     tmp_m = mod( idx, M_x_max );
+% % %     if tmp_m == 0
+% % %         m = M_x_max;
+% % %     else
+% % %         m = tmp_m;
+% % %     end
 
-% %     if mod( idx, M_x_max * M_y_max ) == 0
-% %         n = M_y_max;
-% %     else
-% %         n = ( mod( idx, M_x_max * M_y_max ) - m ) / M_x_max + 1;
-% %     end
+% % %     if mod( idx, M_x_max * M_y_max ) == 0
+% % %         n = M_y_max;
+% % %     else
+% % %         n = ( mod( idx, M_x_max * M_y_max ) - m ) / M_x_max + 1;
+% % %     end
     
-% %     ell_all = ( idx - m - ( n - 1 ) * M_x_max ) / ( M_x_max * M_y_max ) + 1;
+% % %     ell_all = ( idx - m - ( n - 1 ) * M_x_max ) / ( M_x_max * M_y_max ) + 1;
     
-% %     ell = ell_all - cum_N_p(9);
-% %     % p = get_p(ell_all, cum_N_p);
-% %     % if p == 1
-% %     %     ell = ell_all;
-% %     % else
-% %     %     ell = ell_all - cum_N_p(p - 1);
-% %     % end
+% % %     ell = ell_all - cum_N_p(9);
+% % %     % p = get_p(ell_all, cum_N_p);
+% % %     % if p == 1
+% % %     %     ell = ell_all;
+% % %     % else
+% % %     %     ell = ell_all - cum_N_p(p - 1);
+% % %     % end
 
-% %     if A_10(idx, :) == zeros( 1, M_x_max * M_y_max * ( N_max + N_10 ) );
-% %         disp( [' Error in [ ', num2str(m), ', ', num2str(n), ', ', num2str(ell), '] in layer 10'] );
-% %     end
-% % end
+% % %     if A_10(idx, :) == zeros( 1, M_x_max * M_y_max * ( N_max + N_10 ) );
+% % %         disp( [' Error in [ ', num2str(m), ', ', num2str(n), ', ', num2str(ell), '] in layer 10'] );
+% % %     end
+% % % end
 
-% % % % disp('The calculation time for inverse matrix using conjugate gradient: ')
-% % % % tic;
-% % % % [bar_x_cgs, flag, relres] = cgs(A, B, 10^(-6), 20);
-% % % % toc;
+% % % % % disp('The calculation time for inverse matrix using conjugate gradient: ')
+% % % % % tic;
+% % % % % [bar_x_cgs, flag, relres] = cgs(A, B, 10^(-6), 20);
+% % % % % toc;
 
-% load('Preliminary_hetero_zp_10.mat');
 
-tol = 1e-12;  
-maxit = 20; 
-% M1 = diag([10:-1:1 1 1:10]);
-x = gmres(A_10, B_10, 20, tol, maxit);
+% % Normalize each rows
+
+% for idx = 1: 1: M_x_max * M_y_max * ( N_max + N_10 ) 
+%     A_10( idx, : ) = A_10( idx, : ) ./ max( abs(A_10( idx, : )) );
+%     B_10( idx ) = B_10( idx ) ./ max( abs(A_10( idx, : )) ); 
+% end
+
+% save('Preliminary_hetero_zp_10.mat');
+load('Preliminary_hetero_zp_10.mat');
+
+% % test for the GMRES function in the matlab
+tol = 1e-6;
+ext_itr_num = 20;
+int_itr_num = 20;
+x_zero = B_10;
+% % % M1 = diag([10:-1:1 1 1:10]);
+tic;
+bar_x_my_gmres = GMRES_test( A_10, B_10, ext_itr_num, int_itr_num, tol, x_zero );
+toc;
+
+cross_section_test_gmres;
+
+% tic;
+% x_matlab_gmres = gmres(A_10, B_10, int_itr_num, tol, ext_itr_num);
+% toc;
+
 % tol = 1e-10;
 % tmp_B_10 = A_10' * B_10;
 % tmp_A_10 = A_10' * A_10;
 % bar_x_cg_t = conjugate_gradient(tmp_A_10, tmp_B_10, tol);
 
-% disp('The calculation time for inverse matrix: ');
-% tic;
-% bar_x_10 = A_10 \ B_10;
-% toc;
+disp('The calculation time for inverse matrix: ');
+tic;
+bar_x_10 = A_10 \ B_10;
+toc;
+
+% ratio_matlab = 100 * norm( bar_x_10 - x_matlab_gmres ) / norm(bar_x_10)
+ratio_my_gmres = 100 * norm( bar_x_10 - bar_x_my_gmres ) / norm(bar_x_10)
 
 % disp('The saving time: ')
 % tic;
 % save('Preliminary_hetero_zp_10.mat');
 % toc;
-
-% % % Write another script for the following code.
-
-% % Cross_section = zeros( N_max, M_x_max );
-
-% % for idx = 1: 1: M_x_max * M_y_max * N_max
-% %     tmp_m = mod( idx, M_x_max );
-% %     if tmp_m == 0
-% %         m = M_x_max;
-% %     else
-% %         m = tmp_m;
-% %     end
-
-% %     if mod( idx, M_x_max * M_y_max ) == 0
-% %         n = M_y_max;
-% %     else
-% %         n = ( mod( idx, M_x_max * M_y_max ) - m ) / M_x_max + 1;
-% %     end
-    
-% %     ell_all = ( idx - m - ( n - 1 ) * M_x_max ) / ( M_x_max * M_y_max ) + 1;
-    
-% %     p = get_p(ell_all, cum_N_p);
-% %     if p == 1
-% %         ell = ell_all;
-% %     else
-% %         ell = ell_all - cum_N_p(p - 1);
-% %     end
-
-% %     if n == int32( ( 1 + M_y ) / 2 )
-% %     % if m == 4
-% %         Cross_section( ell_all, m ) = bar_x(idx);
-% %     end
-% % end
-
-% % % [ E_x, E_z ] = cr0eateVector( Cross_section, d_x, d_z, M_x_max, M_y_max, N_max );
-
-% % x_ori = 0: d_x: w_0;
-% % z_ori = [];
-% % for idx = 1: 1: length(thickness)
-% %     if idx == 1
-% %         z_ori = 0: d_z(idx): thickness(idx);
-% %     else
-% %         z_ori = [z_ori, z_ori(length(z_ori)) + d_z(idx): d_z(idx): cum_thickness(idx)];
-% %     end
-% % end
-% % [x_mesh, z_mesh] = meshgrid(x_ori, z_ori);
-% % figure(1);
-% % % contourf(x_mesh * 100, z_mesh * 100, Cross_section, 15);
-% % % hold on;
-% % % quiver(x_mesh * 100, z_mesh * 100, E_x, E_z, 'color',[0 0 0], 'LineWidth', 2.0);
-% % % hold on;
-% % surf(x_mesh * 100, z_mesh * 100, Cross_section, 'EdgeColor','none'); 
-% % colorbar;
-% % set(gca,'fontsize',14);
-% % axis( [ 0, w_0 * 100, 0, sum(thickness) * 100, min(min(Cross_section)), max(max(Cross_section)) ] );
-% % % axis( [ (- d_x) * 100, (w_0 + d_x) * 100, (- d_z(1)) * 100, (sum(thickness) + d_z(9)) * 100, min(min(Cross_section)), max(max(Cross_section)) ] );
-% % xlabel('$y$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
-% % ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
-% % zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
-% % view(2);
-
-% % % x_cut = x_0 - h_b + d_x: d_x: x_0 + w + h_b - d_x;
-% % % Cross_section_tissue_bolus = Cross_section(:, M_x1 + 2: M_x - M_x5);
-% % % E_x_tissue_bolus = E_x(:, M_x1 + 2: M_x - M_x5);
-% % % E_z_tissue_bolus = E_z(:, M_x1 + 2: M_x - M_x5);
-% % % [x_cut_mesh, z_cut_mesh] = meshgrid(x_cut, z_ori);
-% % % figure(2);
-% % % contourf(x_cut_mesh * 100, z_cut_mesh * 100, Cross_section_tissue_bolus, 15);
-% % % hold on;
-% % % quiver(x_cut_mesh * 100, z_cut_mesh * 100, E_x_tissue_bolus, E_z_tissue_bolus, 'color',[0 0 0], 'LineWidth', 2.0);
-% % % hold on;
-% % % % colormap(zeros(1,3));
-% % % % surf(x_mesh, z_mesh, Cross_section, 'EdgeColor','none'); % m -> \mu m
-% % % colorbar
-% % % set(gca,'fontsize',14);
-% % % % axis( [ 0, w_0, 0, sum(thickness), min(min(Cross_section)), max(max(Cross_section)) ] );
-% % % xlabel('$y$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
-% % % ylabel('$z$ (cm)','Interpreter','LaTex', 'FontSize', 18);
-% % % zlabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
-% % % view(2);
-
-% % % X_thickness = [ ( x_0 - h_b ), h_b, w, h_b, ( x_0 - h_b ) ];
-% % % layer_num   = length(X_thickness);
-% % % XAccuDepth  = cumsum(X_thickness);
-% % % plotVerticalLine_capacitive_loading( figure(1), layer_num, XAccuDepth * 100, sum(thickness) * 100, 0, length(x_ori) );
-% % % % plotVerticalLine_capacitive_loading( figure(2), layer_num, XAccuDepth, max(max(Cross_section)), min(min(Cross_section)), length(x_ori) );
-
-% % % figure(2);
-% % % plot( x_ori, Cross_section(1, :), 'k--o', 'LineWidth', 2.5 );
-% % % set(gca,'fontsize',14);
-% % % axis( [ 0, w_0, min(min(Cross_section)), max(max(Cross_section)) ] );
-% % % xlabel('$x$ (cm)', 'Interpreter','LaTex', 'FontSize', 18);
-% % % ylabel('$\Phi (x, z)$ ($V$)','Interpreter','LaTex', 'FontSize', 18);
-% % % hold on;
-% % % plot( x_ori, Cross_section( ceil( (1 + length(z_ori)) / 2 ), : ), 'k--', 'LineWidth', 2.5 );
-% % % hold on;
-% % % plot( x_ori, Cross_section(length(z_ori), :), 'k', 'LineWidth', 2.5 );
-% % % hold on;
-% % % plotVerticalLine_capacitive_loading( figure(2), layer_num, XAccuDepth, max(max(Cross_section)), min(min(Cross_section)), length(x_ori) );
-    
-% % % [ M_x1, M_x2, M_x3, M_x4, M_x5, M_x ];
