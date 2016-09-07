@@ -11,9 +11,9 @@ v_matrix = v( :, 1: 1: i );
 
 tilde_x = x_0 + v_matrix * y;
 
-if abs( norm(b - A * tilde_x) ) < tol
+if abs( norm( b - A_ast_b( A, tilde_x ) ) ) < tol
     flag = true;
-    disp( ['The residual is ', num2str( norm(b - A * tilde_x) )] );
+    disp( ['The residual is ', num2str( norm( b - A_ast_b( A, tilde_x ) ) )] );
 end
 
 end

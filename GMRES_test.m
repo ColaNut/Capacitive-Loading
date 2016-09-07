@@ -12,13 +12,13 @@ for j = 1: 1: ext_itr_num
     cos_i = zeros(int_itr_num, 1);
     sin_i = zeros(int_itr_num, 1);
 
-    r = b - A * x_0;
+    r = b - A_ast_b( A, x_0 );
     flag = false;
     v(:, 1) = r ./ norm(r);
     s(1) = norm(r);
 
     for i = 1: 1: int_itr_num
-        w = A * v(:, i);
+        w = A_ast_b( A, v(:, i) );
         for k = 1: 1: i
             h(k, i) = w' * v(:, k);
             w = w - h(k, i) * v(:, k);
@@ -62,6 +62,6 @@ for j = 1: 1: ext_itr_num
 end
 
 warning( ['The GMRES cannot find the solution wihthin ', num2str(ext_itr_num), ' times, where the inner iteration number is ', num2str(int_itr_num)] );
-disp( ['The residual is ', num2str( norm(b - A * x_0) )] );
+disp( ['The residual is ', num2str( norm( b - A_ast_b( A, x_0 ) ) )] );
 
 end

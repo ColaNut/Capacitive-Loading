@@ -1,5 +1,7 @@
 # Capacitive-Loading
 
+The top-down air point have bug, accordingly, the top_air_10 and bottom_ari_da have to be revised.
+
 Overall Description: Phi distribution
 
 The initial commit correspod to Hyperthermia_Lung(v1_2_8).TEX
