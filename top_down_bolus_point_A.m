@@ -68,9 +68,7 @@ switch point_idx
         A_row( p6 ) = Epsilon_0 * d_x * ( d_z(p) + d_z(p) ) / (2 * d_y); % n - 1
         A_row( p0 ) = - ( A_row( p1 ) + A_row( p2 ) + A_row( p4 ) + A_row( p5 ) + A_row( p6 ) ); % center point
     otherwise
-        disp('wrong in top down bolus point');
-        p0;
-        disp('Testing push function');
+        warning('wrong in top down bolus point');
 end
 
 end

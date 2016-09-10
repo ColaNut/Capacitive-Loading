@@ -36,7 +36,7 @@ switch line_idx
         A_row( p1 ) = ( 1 / d_z(p) )^2; % ell + 1
         A_row( p3 ) = ( 1 / d_z(p) )^2; % ell - 1
     otherwise
-        disp('wrong')
+        warning('wrong');
 end
 
 end

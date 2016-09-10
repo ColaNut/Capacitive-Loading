@@ -1,5 +1,5 @@
 function [ A_row ] = bolus_horizental_line_da_A( line_idx, p, p0, p1, p2, p3, p4, p5, p6, M_x_max, M_y_max, N_max, N_10, N_da, d_x, d_y, d_z, d_z_da, epsilon, epsilon_b, Epsilon_0 )
-    
+
     A_row = zeros( 1, M_x_max * M_y_max * ( N_da + N_max + N_10 ) );
     
     if ~( p == 0)
